@@ -1,0 +1,14 @@
+import os
+
+print("Hello, lets check your connection by pinging Google")
+os.system("ping 8.8.8.8 > ping.txt")
+pingable = open("ping.txt", "r")
+for earphone in pingable:
+    line = earphone.replace("\n", "")
+    if "ms" in line:
+        print("You have an internet connection")
+        break
+    elif "unreachable" in line:
+        print("You dont have an internet connection")
+    else:
+        continue
