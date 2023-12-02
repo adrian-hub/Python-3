@@ -1,0 +1,14 @@
+import os
+
+os.system("ping 8.8.8.8 > ping.txt")
+keyfile = open("ping.txt", "r")
+for line in keyfile:
+    if "bytes" in line and "time" in line:
+        mylist = line.split(" ")
+        update = "The Bytes are: " + mylist[3] + " The time is: " + mylist[4]
+        print(update)
+        newfile = open(r"new-ping. txt", "a+")
+        newfile.write(update + "In")
+        newfile.close()
+    else:
+        continue
